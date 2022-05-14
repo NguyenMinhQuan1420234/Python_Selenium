@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import time
+import pyautogui
 
 PATH = "C:\\Program Files (x86)\\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
@@ -22,7 +23,10 @@ items = [driver.find_element_by_id("productPrice" + str(i)) for i in range(1,-1,
 actions = ActionChains(driver)
 actions.click(cookie)
 
+pyautogui.FAILSAFE = False
 for i in range(5000):
+    pyautogui.tripleClick(400,650)
+    # print(pyautogui.position())
     actions.click(cookie)
     actions.perform()
     count = int(cookie_count.text.split(" ")[0])
