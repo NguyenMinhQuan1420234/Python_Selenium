@@ -13,6 +13,7 @@ driver = webdriver.Chrome(PATH)
 driver.get("https://orteil.dashnet.org/cookieclicker/")
 
 driver.implicitly_wait(5)
+driver.maximize_window()
 
 cookie = driver.find_element_by_id("bigCookie")
 cookie_count = driver.find_element_by_id("cookies")
@@ -21,10 +22,10 @@ items = [driver.find_element_by_id("productPrice" + str(i)) for i in range(1,-1,
 actions = ActionChains(driver)
 actions.click(cookie)
 
-
 for i in range(5000):
+    actions.click(cookie)
     actions.perform()
-    count = cookie_count.text.split(" ")[0]
+    count = int(cookie_count.text.split(" ")[0])
     print(count)
     for item in items:
         value = int(item.text)
