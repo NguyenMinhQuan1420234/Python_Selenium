@@ -13,3 +13,6 @@ name = ["Tim", "Jack","Schooby","Lance"]
 age = [21, 18,23,44]
 color = ["black","white","yellow","brown"]
 print(list(zip(name,age,color)))
+for name, age in zip(name,age):
+    if age >= 23:
+        print(name)
