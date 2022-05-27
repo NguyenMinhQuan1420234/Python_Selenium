@@ -24,6 +24,9 @@ def sort_func(x):
 lst.sort(key = lambda x: x[1] + x[0])
 print(lst)
 
+tup = (1,2,3,4,5)
+a , *b ,c = tup
+print (a, b, c)
 
 # x, y = map(int, input("Enter multiple values: ").split())
 # print(type(x),type(y))
