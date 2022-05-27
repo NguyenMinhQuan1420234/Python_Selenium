@@ -9,3 +9,7 @@ word = " hello you are piece of shit "
 print(len(word))
 x = {char: word.count(char) for char in set(word)}
 print(x)
+name = ["Tim", "Jack","Schooby","Lance"]
+age = [21, 18,23,44]
+color = ["black","white","yellow","brown"]
+print(list(zip(name,age,color)))
