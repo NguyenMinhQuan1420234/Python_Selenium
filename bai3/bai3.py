@@ -2,9 +2,11 @@ from selenium.webdriver  import Chrome
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 import time
-import webbrowser
+from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
-driver = Chrome(executable_path="./bai3/chromedriver.exe")
+# driver = Chrome(executable_path="./bai3/chromedriver.exe")
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
 driver.get("https://www.facebook.com/")
 
