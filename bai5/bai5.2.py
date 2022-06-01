@@ -13,7 +13,7 @@ from selenium.webdriver.common.keys import Keys
 chrome_options = Options()
 chrome_options.add_experimental_option("detach",True)
 
-driver = Chrome(ChromeDriverManager().install(),options=chrome_options)
+driver = Chrome(ChromeDriverManager().install(), options = chrome_options)
 # driver.get("https://www.facebook.com")
 
 # username = driver.find_element(By.ID,"email")
@@ -85,4 +85,4 @@ driver.find_element(By.ID,'show-textbox').click()
 
 time.sleep(5)
 
-driver.close()
+# driver.close()
