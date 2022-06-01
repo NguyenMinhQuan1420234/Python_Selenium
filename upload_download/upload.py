@@ -1,10 +1,15 @@
-import requests
+from seleniumbase import BaseCase
 
-url = 'https://httpbin.org/post'
+class UploadTest(BaseCase):
+    def test_visible_upload(self):
+        
+        self.open("https://the-internet.herokuapp.com/upload")
 
-files = {'file': open('USCarBrands.csv', 'rb')}
+        file_path = './upload_download/file.dotx'
 
-r = requests.post(url, files= files)
+        self.choose_file("#file-upload", file_path)
 
-print(r.status_code)
-print(r.text)
+        self.click('#file-submit')
+
+        self.assert_text('File uploaded!', 'h3')
+
