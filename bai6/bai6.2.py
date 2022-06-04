@@ -11,7 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 chrome_options = Options()
 chrome_options.add_experimental_option("detach",True)
-chrome_options.add_argument(r"user-data-dir=C:\Users\hv\AppData\Local\Google\Chrome\User Data\Default")
+# chrome_options.add_argument(r"user-data-dir=C:\Users\hv\AppData\Local\Google\Chrome\User Data\Default")
 
 driver = Chrome(service=Service(ChromeDriverManager().install()), options= chrome_options)
 driver.maximize_window()
