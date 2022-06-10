@@ -1,3 +1,4 @@
+from inspect import isframe
 import unittest
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import Chrome
@@ -6,6 +7,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import time
 
 class testcaseSample(unittest.TestCase):
     
@@ -33,18 +35,27 @@ class testcaseSample(unittest.TestCase):
         driver.find_element(By.XPATH,'//i[@class="icon-th-large"]').click()
 
         productsList = driver.find_elements(By.XPATH,'//div[@class="product-image-container"]')
-
-        for product in productsList:
-            if product.get_attribute("title") == "Printed Summer Dress":
-                product.click()
-                break
-        WebDriverWait(driver,10).until_not(EC.presence_of_element_located((By.XPATH,'//span[@class="category-name"]')))
+        #//a[@title="Printed Summer Dress"]
+        productsList[0].click()
+        WebDriverWait(driver,20)
+        time.sleep(20)
+        iframe = driver.find_element(By.XPATH,('//iframe[@class="fancybox-iframe"]'))
+        # print(isframe(iframe))
         
-        nameOfProduct = driver.find_element(By.XPATH,'//h1[@itemprop="name"]')
-        if nameOfProduct.text == "Printed Summer Dress":
-            print('Product Verified!')
-        else:
-            print("Not what I want!")
+        driver.switch_to.frame(iframe)
+        # # driver.maximize_window()
+        # WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH,'//h1[@itemprop="name"]')))
+        productName = driver.find_element(By.XPATH,'//h1[@itemprop="name"]')
+        self.assertEqual(productName.text,"Printed Summer Dress")  # 1 task
+
+
+        # WebDriverWait(driver,10).until_not(EC.presence_of_element_located((By.XPATH,'//h1[@class="page-heading  product-listing"]')))
+        
+        # nameOfProduct = driver.find_element(By.XPATH,'//h1[@itemprop="name"]')
+        # if nameOfProduct.text == "Printed Summer Dress":
+        #     print('Product Verified!')
+        # else:
+        #     print("Not what I want!")
 
 
 
