@@ -47,7 +47,7 @@ class testcaseSample(unittest.TestCase):
         # WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH,'//h1[@itemprop="name"]')))
         productName = driver.find_element(By.XPATH,'//h1[@itemprop="name"]')
         self.assertEqual(productName.text,"Printed Summer Dress")  # 1 task
-
+        
 
         # WebDriverWait(driver,10).until_not(EC.presence_of_element_located((By.XPATH,'//h1[@class="page-heading  product-listing"]')))
         
