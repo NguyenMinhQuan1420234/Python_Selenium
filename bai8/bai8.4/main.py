@@ -47,7 +47,7 @@ class testcaseSample(unittest.TestCase):
         # # driver.maximize_window()
         # WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH,'//h1[@itemprop="name"]')))
         productName = driver.find_element(By.XPATH,'//h1[@itemprop="name"]')
-        self.assertEqual(productName.text,"Printed Summer Dress")  # 1 task
+        self.assertEqual(productName.text,"Printed Summer Dress")  # Verify name task
         
         driver.find_element(By.XPATH,'//img[@id="bigpic"]').click()
 
@@ -62,6 +62,23 @@ class testcaseSample(unittest.TestCase):
         color3 = blueDress.get_attribute("name")
         yellowDress = driver.find_element(By.XPATH,'//a[@id="color_16"]')
         color4 = yellowDress.get_attribute("name")
+        yellowDress.click()
+        
+        bigPic = driver.find_element(By.XPATH,'//img[@id="bigpic"]')
+        srcLink = bigPic.get_attribute("src")
+
+        self.assertEqual(srcLink,"http://automationpractice.com/img/p/1/2/12-large_default.jpg") # Verify big Picture changed
+        
+        thumbNail = driver.find_element(By.XPATH,'//img[@id="thumb_12"]')
+        thbNailID = thumbNail.get_attribute("id")
+
+        self.assertEqual(thbNailID,"thumb_12") # Verify thumbnail
+        
+
+
+
+        # src="http://automationpractice.com/img/p/1/2/12-large_default.jpg" yellow dress
+
 
 
         # WebDriverWait(driver,10).until_not(EC.presence_of_element_located((By.XPATH,'//h1[@class="page-heading  product-listing"]')))
