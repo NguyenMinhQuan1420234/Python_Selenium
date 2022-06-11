@@ -17,6 +17,7 @@ class testcaseSample(unittest.TestCase):
         chrome_options.add_argument("log-level=3")
         driver = Chrome(service=Service(ChromeDriverManager().install()),options=chrome_options)
         driver.get("http://automationpractice.com/index.php")
+        driver.maximize_window()
 
         driver.find_element(By.XPATH,'//a[@class="login"]').click()
         email = driver.find_element(By.ID,'email')
@@ -33,7 +34,7 @@ class testcaseSample(unittest.TestCase):
         search.submit()
 
         driver.find_element(By.XPATH,'//i[@class="icon-th-large"]').click()
-
+        
         productsList = driver.find_elements(By.XPATH,'//div[@class="product-image-container"]')
         #//a[@title="Printed Summer Dress"]
         productsList[0].click()
@@ -48,6 +49,20 @@ class testcaseSample(unittest.TestCase):
         productName = driver.find_element(By.XPATH,'//h1[@itemprop="name"]')
         self.assertEqual(productName.text,"Printed Summer Dress")  # 1 task
         
+        driver.find_element(By.XPATH,'//img[@id="bigpic"]').click()
+
+        colors = []
+
+        blackDress = driver.find_element(By.XPATH,'//a[@id="color_11"]')
+        colors += blackDress.get_attribute("name")
+        print(colors[0])
+        orangeDress = driver.find_element(By.XPATH,'//a[@id="color_13"]')
+        color2 = orangeDress.get_attribute("name")
+        blueDress = driver.find_element(By.XPATH,'//a[@id="color_14"]')
+        color3 = blueDress.get_attribute("name")
+        yellowDress = driver.find_element(By.XPATH,'//a[@id="color_16"]')
+        color4 = yellowDress.get_attribute("name")
+
 
         # WebDriverWait(driver,10).until_not(EC.presence_of_element_located((By.XPATH,'//h1[@class="page-heading  product-listing"]')))
         
