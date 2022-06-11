@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Report</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-capitalize">Test Report</h2>
+                <p class='attribute'><strong>Start Time: </strong>2022-06-12 00:33:54</p>
+                <p class='attribute'><strong>Duration: </strong>28.45 s</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 2, Pass: 1, Error: 1</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-10">
+                <table class='table table-hover table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>testcases.TestCaseSample</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class='warning'>
+                            <td class="col-xs-10">test_message_to_customer_service</td>
+                            <td class="col-xs-1">
+                                <span class="label label-warning" style="display:block;width:40px;">Error</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>
+</p><p style="color:maroon;">InvalidArgumentException: Message: invalid argument: File not found : C:\Users\hv\Downloads\work\bai8\SampleTestcase.docx
+  (Session info: chrome=102.0.5005.63)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0092D953+2414931]
+	Ordinal0 [0x008BF5E1+1963489]
+	Ordinal0 [0x007AC6B8+837304]
+	Ordinal0 [0x007D30EA+995562]
+	Ordinal0 [0x007F449C+1131676]
+	Ordinal0 [0x007CFC74+982132]
+	Ordinal0 [0x007F46B4+1132212]
+	Ordinal0 [0x00804812+1198098]
+	Ordinal0 [0x007F42B6+1131190]
+	Ordinal0 [0x007CE860+976992]
+	Ordinal0 [0x007CF756+980822]
+	GetHandleVerifier [0x00B9CC62+2510274]
+	GetHandleVerifier [0x00B8F760+2455744]
+	GetHandleVerifier [0x009BEABA+551962]
+	GetHandleVerifier [0x009BD916+547446]
+	Ordinal0 [0x008C5F3B+1990459]
+	Ordinal0 [0x008CA898+2009240]
+	Ordinal0 [0x008CA985+2009477]
+	Ordinal0 [0x008D3AD1+2046673]
+	BaseThreadInitThunk [0x76F9FA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77B77A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77B77A4E+238]
+</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:\Users\banch\Python_Selenium\bai9\bai9.1\testcases.py", line 70, in test_message_to_customer_service
+    AttachFile.send_keys(r"C:\Users\hv\Downloads\work\bai8\SampleTestcase.docx")
+  File "C:\Users\banch\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 600, in send_keys
+    self._execute(Command.SEND_KEYS_TO_ELEMENT,
+  File "C:\Users\banch\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\webelement.py", line 773, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Users\banch\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 430, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\banch\AppData\Local\Programs\Python\Python310\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument: File not found : C:\Users\hv\Downloads\work\bai8\SampleTestcase.docx
+  (Session info: chrome=102.0.5005.63)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x0092D953+2414931]
+	Ordinal0 [0x008BF5E1+1963489]
+	Ordinal0 [0x007AC6B8+837304]
+	Ordinal0 [0x007D30EA+995562]
+	Ordinal0 [0x007F449C+1131676]
+	Ordinal0 [0x007CFC74+982132]
+	Ordinal0 [0x007F46B4+1132212]
+	Ordinal0 [0x00804812+1198098]
+	Ordinal0 [0x007F42B6+1131190]
+	Ordinal0 [0x007CE860+976992]
+	Ordinal0 [0x007CF756+980822]
+	GetHandleVerifier [0x00B9CC62+2510274]
+	GetHandleVerifier [0x00B8F760+2455744]
+	GetHandleVerifier [0x009BEABA+551962]
+	GetHandleVerifier [0x009BD916+547446]
+	Ordinal0 [0x008C5F3B+1990459]
+	Ordinal0 [0x008CA898+2009240]
+	Ordinal0 [0x008CA985+2009477]
+	Ordinal0 [0x008D3AD1+2046673]
+	BaseThreadInitThunk [0x76F9FA29+25]
+	RtlGetAppContainerNamedObjectPath [0x77B77A7E+286]
+	RtlGetAppContainerNamedObjectPath [0x77B77A4E+238]
+
+</p>
+                            </td>
+                        </tr>
+                        <tr class='success'>
+                            <td class="col-xs-10">test_verify_shoppingButtons</td>
+                            <td class="col-xs-1">
+                                <span class="label label-success" style="display:block;width:40px;">Pass</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p>
+</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                Total: 2, Pass: 1, Error: 1 -- Duration: 28.45 s
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('td').on('click', '.btn', function(e){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                var $this = $(this);
+                var $nextRow = $this.closest('tr').next('tr');
+                $nextRow.slideToggle("fast");
+                $this.text(function(i, text){
+                    if (text === 'View') {
+                        return 'Hide';
+                    } else {
+                        return 'View';
+                    };
+                });
+            });
+        });
+    </script>
+</body>
+</html
