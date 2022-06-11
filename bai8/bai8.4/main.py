@@ -1,5 +1,5 @@
-from inspect import isframe
 import unittest
+from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import Chrome
 from webdriver_manager.chrome import ChromeDriverManager
@@ -21,7 +21,7 @@ class testcaseSample(unittest.TestCase):
 
         driver.find_element(By.XPATH,'//a[@class="login"]').click()
         email = driver.find_element(By.ID,'email')
-        email.send_keys('tester28@gmail.com')
+        email.send_keys('banchi0072000@yahoo.com')
         password = driver.find_element(By.ID,'passwd')
         password.send_keys('12345678')
 
@@ -39,7 +39,7 @@ class testcaseSample(unittest.TestCase):
         #//a[@title="Printed Summer Dress"]
         productsList[0].click()
         WebDriverWait(driver,20)
-        time.sleep(20)
+        # time.sleep(20)
         iframe = driver.find_element(By.XPATH,('//iframe[@class="fancybox-iframe"]'))
         # print(isframe(iframe))
         
@@ -51,11 +51,8 @@ class testcaseSample(unittest.TestCase):
         
         driver.find_element(By.XPATH,'//img[@id="bigpic"]').click()
 
-        colors = []
-
         blackDress = driver.find_element(By.XPATH,'//a[@id="color_11"]')
-        colors += blackDress.get_attribute("name")
-        print(colors[0])
+        color1 = blackDress.get_attribute("name")
         orangeDress = driver.find_element(By.XPATH,'//a[@id="color_13"]')
         color2 = orangeDress.get_attribute("name")
         blueDress = driver.find_element(By.XPATH,'//a[@id="color_14"]')
@@ -74,8 +71,27 @@ class testcaseSample(unittest.TestCase):
 
         self.assertEqual(thbNailID,"thumb_12") # Verify thumbnail
         
+        driver.find_element(By.ID,'new_comment_tab_btn').click()
+        ReviewForm = driver.find_element(By.XPATH,'//div[@class="new_comment_form_content col-xs-12 col-sm-6"]')
+        self.assertTrue(ReviewForm.is_displayed())
 
 
+        driver.find_element(By.XPATH,'//a[@title="4"]').click()
+        driver.find_element(By.ID,'comment_title').send_keys("Refund please!")
+        driver.find_element(By.ID,'submitNewMessage').click()
+
+        WebDriverWait(driver,20).until(EC.visibility_of_element_located((By.ID,'new_comment_form_error')))
+        alertMsg = driver.find_element(By.ID,'new_comment_form_error')
+        # EC.text_to_be_present_in_element
+        self.assertEqual(alertMsg.text,"Comment is incorrect")
+        comment = driver.find_element(By.ID,'content')
+        comment.send_keys("Refund or die bitch!")
+        driver.find_element(By.ID,'submitNewMessage').click()
+
+        popup = driver.find_element(By.XPATH,'//div[@class="fancybox-inner"]')
+        self.assertTrue(popup.is_displayed())
+
+        driver.find_element(By.XPATH,'//button[@class="button btn-default button-medium"]').click()
 
         # src="http://automationpractice.com/img/p/1/2/12-large_default.jpg" yellow dress
 
