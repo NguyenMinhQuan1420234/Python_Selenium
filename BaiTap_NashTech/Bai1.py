@@ -22,10 +22,13 @@ for i in range ( 0, rows) :
             print(start, end= ' ')
             start+=delta
         else:
-            while start > 0: # xu ly so >= 10
+            while start > 0 or sum >= 10: # xu ly so >= 10
                 digit = start % 10
                 sum+=digit
                 start = int(start / 10)
+                if sum >= 10:
+                    start = sum
+                    sum = 0
             print(sum, end= ' ')
             start = sum + delta
             sum = 0
