@@ -31,9 +31,6 @@ for i in range ( 0, rows) :
             sum = 0
         
     print('')
-        
-
-print(*list)
 
 # print(*list)
 
