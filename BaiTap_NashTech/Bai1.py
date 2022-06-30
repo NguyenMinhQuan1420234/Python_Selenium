@@ -18,20 +18,20 @@ sum = 0
 
 for i in range ( 0, rows) :
     for j in range ( i+1 ):
-        if start < 10:
-            print(start, end= ' ')
-            start+=delta
-        else:
-            while start > 0 or sum >= 10: # xu ly so >= 10
-                digit = start % 10
-                sum+=digit
-                start = int(start / 10)
-                if sum >= 10:
-                    start = sum
-                    sum = 0
-            print(sum, end= ' ')
-            start = sum + delta
-            sum = 0
+        # if start < 10:
+        #     print(start, end= ' ')
+        #     start+=delta
+        # else:
+        while start > 0: # xu ly so >= 10
+            digit = start % 10
+            sum+=digit
+            start = int(start / 10)
+            if sum >= 10:
+                start = sum
+                sum = 0
+        print(sum, end= ' ')
+        start = sum + delta
+        sum = 0
         
     print('')
 
